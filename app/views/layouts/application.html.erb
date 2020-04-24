@@ -11,6 +11,10 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    <%= yield %>
+    <%# TODO: put notice in template %>
+    <!-- <p id="notice"><%= notice %></p> -->
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
