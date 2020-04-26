@@ -1,0 +1,26 @@
+<h2>User info</h2>
+<%= image_tag 'no_image.jpg' %>
+<%# <img src="/assets/no_image.jpg" alt=""> %>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>name</th>
+      <th>test</th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th>test</th>
+    </tr>
+  </tbody>
+</table>
+<div class="row">
+<%= link_to "edit", edit_user_registration_path %>
+</div>
+<h2>New book</h2>
+<%= form_with model: book do |f| %>
+<%= f.label :title, "Title"%>
+<%= f.text_field :title, class: "col-12"%>
+<%= f.label :body, "Opinion" %>
+<%= f.text_area :body, class: "col-12" %>
+<%= f.submit "送信", class: "btn btn-primary" %>
+<% end %>
