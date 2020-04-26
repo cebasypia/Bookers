@@ -2,7 +2,9 @@
 
 Rails.application.routes.draw do
   root to: 'home#index'
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
   resources :users, only: %i[index show]
   resources :home, only: %i[index]
   get 'home/about' => 'home#about'
