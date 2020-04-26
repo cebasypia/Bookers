@@ -13,14 +13,14 @@
     </tr>
   </tbody>
 </table>
-<div class="row">
-<%= link_to "edit", edit_user_registration_path %>
-</div>
+  <%= link_to edit_user_registration_path, class: "col-12 btn page-link text-dark" do %>
+    <i class="fas fa-wrench"></i>
+  <% end %>
 <h2>New book</h2>
 <%= form_with model: book do |f| %>
-<%= f.label :title, "Title"%>
-<%= f.text_field :title, class: "col-12"%>
-<%= f.label :body, "Opinion" %>
-<%= f.text_area :body, class: "col-12" %>
-<%= f.submit "送信", class: "btn btn-primary" %>
+  <%= f.label :title, "Title"%>
+  <%= f.text_field :title, class: "col-12"%>
+  <%= f.label :body, "Opinion" %>
+  <%= f.text_area :body, class: "col-12" %>
+  <%= f.submit "Create Book", class: "col-12 btn btn-primary" %>
 <% end %>
