@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <div class="row">
   <div class="top-message col-6 mx-auto">
     <h1>
@@ -8,8 +10,13 @@
     <p>you can share and exchange your opinions , impressions , and emotions</p>
     <p>about various books!</p>
     <div class="row">
+      <% if user_signed_in? %>
+      <%= link_to "Log in", user_path(current_user.id), class: "btn btn-outline-primary col-4 mx-auto" %>
+      <%= link_to "Sign up", user_path(current_user.id), class: "btn btn-outline-success col-4 mx-auto" %>
+      <% else %>
       <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-primary col-4 mx-auto" %>
       <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-success col-4 mx-auto" %>
+      <% end %>
     </div>
   </div>
 </div>
