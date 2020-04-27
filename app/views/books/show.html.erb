@@ -1,19 +1,28 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-sm-3">
+    <%= render partial: 'layouts/user_profile', locals: { user: @book.user } %>
+    <%= render 'layouts/new_book' %>
+  </div>
+  <div class="col-sm-9">
+    <h2>Book detail</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <%# FIXME:　style %>
+          <th style="width:30%;">User</th>
+          <th style="width:40%;">Title</th>
+          <th style="width:30%;">Opinion</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td><%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></td>
+            <td><%= @book.title %></td>
+            <td><%= @book.body %></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @book.body %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @book.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
