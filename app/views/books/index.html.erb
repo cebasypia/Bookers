@@ -3,6 +3,7 @@
   <div class="col-sm-3">
     <%= render 'layouts/user_profile' %>
     <%= render 'layouts/new_book' %>
+    <h2>New book</h2>
   </div>
   <div class="col-sm-9">
     <h2>Books</h2>
@@ -18,7 +19,11 @@
       <tbody>
         <% @books.each do |book| %>
           <tr>
-            <td><%= attachment_image_tag book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></td>
+            <td>
+              <%= link_to user_path(book.user.id) do %>
+                <%= attachment_image_tag book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
+              <% end %>
+            </td>
             <td><%= link_to book.title, book %></td>
             <td><%= book.body %></td>
           </tr>
