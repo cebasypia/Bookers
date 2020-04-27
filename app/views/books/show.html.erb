@@ -10,19 +10,31 @@
       <thead>
         <tr>
           <%# FIXME:　style %>
-          <th style="width:30%;">User</th>
-          <th style="width:40%;">Title</th>
-          <th style="width:30%;">Opinion</th>
+          <th>User</th>
+          <th>Title</th>
+          <th>Opinion</th>
+          <% if @book.user.id == current_user.id %>
+            <th></th>
+            <th></th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
-          <tr>
-            <td><%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></td>
-            <td><%= @book.title %></td>
-            <td><%= @book.body %></td>
-          </tr>
+        <tr>
+          <td>
+            <%= link_to user_path(@book.user.id) do %>
+              <%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %><br>
+              <%= @book.user.name %>
+            <% end %>
+          </td>
+          <td><%= @book.title %></td>
+          <td><%= @book.body %></td>
+          <% if @book.user.id == current_user.id %>
+            <th><%= link_to "Edit", edit_book_path(@book.id) %></th>
+            <th><%= link_to "Destroy", book_path(@book.id), method: :delete %></th>
+          <% end %>
+        </tr>
       </tbody>
     </table>
   </div>
 </div>
-
