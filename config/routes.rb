@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-  resources :users, only: %i[index show]
+
+  resources :users, only: %i[index show edit update]
   resources :home, only: %i[index]
   get 'home/about' => 'home#about'
   resources :books
