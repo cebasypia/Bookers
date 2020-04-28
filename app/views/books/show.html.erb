@@ -1,18 +1,17 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
-  <div class="col-sm-3">
+  <div class="col-xs-3">
     <%= render partial: 'layouts/user_profile', locals: { user: @book.user } %>
     <%= render 'layouts/new_book' %>
   </div>
-  <div class="col-sm-9">
+  <div class="col-xs-9">
     <h2>Book detail</h2>
     <table class="table">
       <thead>
         <tr>
-          <%# FIXME:　style %>
-          <th>User</th>
-          <th>Title</th>
-          <th>Opinion</th>
+          <th class="col-xs-2">User</th>
+          <th class="col-xs-3">Title</th>
+          <th class="col-xs-5">Opinion</th>
           <% if @book.user.id == current_user.id %>
             <th></th>
             <th></th>
@@ -23,15 +22,15 @@
         <tr>
           <td>
             <%= link_to user_path(@book.user.id) do %>
-              <%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %><br>
+              <%= attachment_image_tag @book.user, :profile_image, :fill, 80, 80, fallback: "no_image.jpg" %><br>
               <%= @book.user.name %>
             <% end %>
           </td>
           <td><%= @book.title %></td>
           <td><%= @book.body %></td>
           <% if @book.user.id == current_user.id %>
-            <th><%= link_to "Edit", edit_book_path(@book.id) %></th>
-            <th><%= link_to "Destroy", book_path(@book.id), method: :delete %></th>
+            <th><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-info" %></th>
+            <th><%= link_to "Destroy", book_path(@book.id), method: :delete, class: "btn btn-danger" %></th>
           <% end %>
         </tr>
       </tbody>
