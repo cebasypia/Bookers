@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field row">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: "col-xs-12" %>
   </div>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+  <div class="field row">
+    <%= form.label :body, "Opinion" %>
+    <%= form.text_area :body, class: "col-xs-12" %>
   </div>
 
 <!--
@@ -28,7 +28,7 @@
   </div>
 -->
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions row">
+    <%= form.submit "Update Book", class: "btn btn-primary" %>
   </div>
 <% end %>
